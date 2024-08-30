@@ -7,29 +7,6 @@ import YourPlaces from './components/YourPlaces';
 
 function App() {
 
-
-  // const [cityData, setCityData] = useState({})
-
-  // const handleSearch = (query) => {
-  //   const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=d7b26fd7ee9ec6be4f7218dc0343c22e`
-  //   fetch(url)
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         return response.json()
-  //       } else {
-  //         throw new Error('City not found')
-  //       }
-  //     })
-  //     .then((data) => {
-  //       setCityData(data);
-  //     })
-  //     .catch((err) => {
-  //       console.log('Errore', err)
-  //       setCityData(null);
-  //     })
-  // }
-
-
   return (
     <BrowserRouter>
       <header>

@@ -42,13 +42,6 @@ function SingleCity({ city }) {
     const windSpeed = cityData ? cityData.wind.speed : '';
     const humidity = cityData ? cityData.main.humidity : '';
 
-    if (!cityData) {
-        return (
-            ''
-        );
-    }
-
-
 
     return (
         <>

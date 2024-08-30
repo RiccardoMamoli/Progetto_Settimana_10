@@ -7,7 +7,7 @@ function Home() {
 
     return (
         <>
-            <Container fluid className="bg-dark text-light mt-2 d-flex h-100 align-items-center">
+            <Container fluid className="bg-dark text-light mt-4 d-flex h-100 align-items-center">
                 <Row>
                     <Col xs={12} lg={3} className="p-0">
                         <SingleCity city={'London'} />
