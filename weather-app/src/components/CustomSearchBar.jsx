@@ -7,7 +7,7 @@ function CustomSearchBar( {onSearch }) {
     const [query , setQuery] = useState('');
 
     const handleSearch = (e) => {
-        e.preventDefaul();
+        e.preventDefault();
         if (onSearch) {
             onSearch(query);
         }
