@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+body {
+
+  background-color: #212529 !important;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  margin-bottom: 0px !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.custom-card {
+  background: linear-gradient(135deg, rgba(172, 164, 215, 0.307), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  height: 232px;
+  border: 1px solid rgba(69, 56, 56, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: transform 0.4s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.custom-card:hover {
+  transform: scale(1.1 , 1.1);
+  cursor: pointer;
+}
+
+
+.degrees {
+  font-size: 70px;
+  font-weight: 400;
+}
+
+.nameCity {
+  font-size: 40px !important;
+}
+
+.dataCity {
+  font-size: 15px;
+}
+
+.custom-button {
+  background-color: rgba(202, 202, 202, 0.597) !important;
+  border: 1px solid transparent !important;
+}
+
+.custom-button:hover {
+  background-color: rgba(202, 202, 202, 0.597) !important;
+  border: 1px solid white !important;
+}
+
+.searchBar {
+  background: rgb(255, 255, 255) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 15px !important;
+  border: 1px solid rgba(69, 56, 56, 0.18) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
+  transition: transform 0.4s ease !important;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
