@@ -42,6 +42,14 @@ function SingleCity({ city }) {
     const windSpeed = cityData ? cityData.wind.speed : '';
     const humidity = cityData ? cityData.main.humidity : '';
 
+    if (!cityData) {
+        return (
+
+            ''
+        );
+    }
+
+
 
     return (
         <>
@@ -99,7 +107,7 @@ function SingleCity({ city }) {
                     <Container fluid className="p-0 d-flex justify-content-center py-3">
                         <div style={{ width: '18rem' }}>
                             <div className="custom-card">
-                                <div className="d-flex align-items-center justify-content-center">
+                                <div className="d-flex align-items-center justify-content-center h-100">
                                     <Spinner animation="grow" />
                                 </div>
                             </div>
