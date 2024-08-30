@@ -44,7 +44,6 @@ function SingleCity({ city }) {
 
     if (!cityData) {
         return (
-
             ''
         );
     }
@@ -107,7 +106,7 @@ function SingleCity({ city }) {
                     <Container fluid className="p-0 d-flex justify-content-center py-3">
                         <div style={{ width: '18rem' }}>
                             <div className="custom-card">
-                                <div className="d-flex align-items-center justify-content-center h-100">
+                                <div className="d-flex align-items-center justify-content-center h">
                                     <Spinner animation="grow" />
                                 </div>
                             </div>
