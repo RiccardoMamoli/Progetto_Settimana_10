@@ -1,47 +1,40 @@
-import { useEffect, useState } from "react";
-import { Container, Button, Row, Col, Spinner } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Container, Row, Col, Button, Spinner } from 'react-bootstrap'
+import { useNavigate, useParams } from 'react-router-dom';
 
-function SingleCity({ city }) {
+function DetailsExtendedCard() {
 
-    const [cityData, setCityData] = useState(null);
+    const { cityName } = useParams();
+    const [cityData, setCityData] = useState({})
     const navigate = useNavigate();
 
-
-
-    const getWeather = (city) => {
-
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=d7b26fd7ee9ec6be4f7218dc0343c22e`
+    function FetchDetails(cityName) {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=d7b26fd7ee9ec6be4f7218dc0343c22e`
         fetch(url)
             .then((response) => {
                 if (response.ok) {
-                    console.log('Sei qui')
+                    console.log('Tutto ok')
                     return response.json()
-                }
-                else {
-                    throw new Error('errore')
+                } else {
+                    throw new Error('non ci siamo')
                 }
             })
-            .then((requestedCity) => {
-                console.log('Sei dentro la citta', requestedCity)
-                setCityData(requestedCity)
+            .then((data) => {
+                setCityData(data);
             })
             .catch((err) => {
-                console.log('errore nel recupero dati', err)
+                console.log('non sono riuscito a caricare', err)
+
             })
-
-
     }
 
-    const ViewDetails = () => {
-        navigate(`/details/${cityData.name}`)
+    function BackToHome() {
+        navigate('/')
     }
-
 
     useEffect(() => {
-        getWeather(city);
-    }, [city])
-
+        FetchDetails(cityName);
+    }, [cityName])
 
     const celsius = cityData ? (cityData.main.temp - 273.15).toFixed(1) + '°' : '';
     const iconUrl = cityData && cityData.weather[0] ? `http://openweathermap.org/img/wn/${cityData.weather[0].icon}.png` : '';
@@ -49,20 +42,13 @@ function SingleCity({ city }) {
     const humidity = cityData ? cityData.main.humidity : '';
     const description = cityData ? cityData.weather[0].main : '';
 
-    if (!cityData) {
-        return (
-            ''
-        );
-    }
-
-
 
     return (
         <>
-            {cityData ?
 
+            {cityData ?
                 (<Container fluid className="p-0 d-flex justify-content-center py-3">
-                    <div style={{ width: '18rem' }}>
+                    < div style={{ width: '18rem' }}>
                         <div className="custom-card">
                             <div className="text-center">
                                 <div className="nameCity">
@@ -106,13 +92,12 @@ function SingleCity({ city }) {
                                     </Row>
 
                                 </div>
-                                <Button className="custom-button my-3" onClick={ViewDetails}> View Details </Button>
+                                <Button className="custom-button my-3" onClick={BackToHome}> Homepage </Button>
                             </div>
                         </div>
-                    </div>
-                </Container>) :
+                    </div >
+                </Container >) : (
 
-                (
                     <Container fluid className="p-0 d-flex justify-content-center py-3">
                         <div style={{ width: '18rem' }}>
                             <div className="custom-card">
@@ -121,19 +106,13 @@ function SingleCity({ city }) {
                                 </div>
                             </div>
                         </div>
-                    </Container>)
+                    </Container>
+                )
 
             }
-
-
         </>
     )
+
 }
 
-export default SingleCity;
-
-
-
-
-
-
+export default DetailsExtendedCard;

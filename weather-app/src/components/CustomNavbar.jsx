@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function CustomNavbar() {
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark">
+            <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark" className='py-3 px-2'>
                 <Container fluid>
                     <Link to="/" className='text-decoration-none'>
                         <Navbar.Brand> your.Weather</Navbar.Brand>

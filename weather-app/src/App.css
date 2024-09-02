@@ -1,6 +1,7 @@
 body {
 
   background-color: #212529 !important;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
 
 }
 
@@ -14,7 +15,7 @@ p {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
-  height: 232px;
+  height: 250px;
   border: 1px solid rgba(69, 56, 56, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   transition: transform 0.4s ease;
@@ -32,7 +33,7 @@ p {
 }
 
 .nameCity {
-  font-size: 40px !important;
+  font-size: 35px !important;
 }
 
 .dataCity {
