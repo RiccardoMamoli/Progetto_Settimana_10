@@ -1,50 +1,47 @@
 import { Container, Row, Col } from "react-bootstrap";
 import SingleCity from "./SingleCity";
+// import { useState } from "react";
+// import { useEffect } from "react";
+// import Loader from "./Loader";
+
 
 
 
 function Home() {
 
+    // const [isLoading, setIsLoading] = useState(true);
+
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         setIsLoading(false);
+    //     }, 4000);
+
+    //     return () => clearTimeout(timer);
+    // }, []);
+
+    // if (isLoading) {
+    //     return (
+    //         <Container fluid className="text-light mt-4 d-flex vh-100 justify-content-center align-items-center">
+    //             <Loader />
+    //         </Container>
+    //     );
+    // }
+
+    const cities = [
+        'London', 'Madrid', 'Milan', 'Lisbon', 'Paris',
+        'Rome', 'Manchester', 'Oslo', 'Copenhagen',
+        'Reggio Emilia', 'Reykjavík', 'Marrakesh'
+    ];
     return (
         <>
-            <Container fluid className="bg-dark text-light mt-4 d-flex h-100 align-items-center">
+            <Container fluid className=" text-light mt-4 d-flex h-100 align-items-center">
                 <Row>
-                    <Col xs={12} md={6} lg={4} xl={3} className="p-0">
-                        <SingleCity city={'London'} />
-                    </Col>
-                    <Col xs={12} md={6} lg={4} xl={3} className="d-flex align-items-center">
-                        <SingleCity city={'Madrid'} />
-                    </Col>
-                    <Col xs={12} md={6}  lg={4} xl={3} className="d-flex align-items-center">
-                        <SingleCity city={'Milan'} />
-                    </Col>
-                    <Col xs={12} md={6}  lg={4} xl={3} className="d-flex align-items-center">
-                        <SingleCity city={'Lisbon'} />
-                    </Col>
-                    <Col xs={12} md={6}  lg={4} xl={3} className="d-flex align-items-center">
-                        <SingleCity city={'Paris'} />
-                    </Col>
-                    <Col xs={12} md={6}  lg={4} xl={3} className="d-flex align-items-center">
-                        <SingleCity city={'Rome'} />
-                    </Col>
-                    <Col xs={12} md={6}  lg={4} xl={3} className="d-flex align-items-center">
-                        <SingleCity city={'Manchester'} />
-                    </Col>
-                    <Col xs={12} md={6}  lg={4} xl={3} className="d-flex align-items-center">
-                        <SingleCity city={'Oslo'} />
-                    </Col>
-                    <Col xs={12} md={6}  lg={4} xl={3} className="d-flex align-items-center">
-                        <SingleCity city={'Copenhagen'} />
-                    </Col>
-                    <Col xs={12} md={6}  lg={4} xl={3} className="d-flex align-items-center">
-                        <SingleCity city={'Reggio Emilia'} />
-                    </Col>
-                    <Col xs={12} md={6}  lg={4} xl={3} className="d-flex align-items-center">
-                        <SingleCity city={'Reykjavík'} />
-                    </Col>
-                    <Col xs={12} md={6}  lg={4} xl={3} className="d-flex align-items-center">
-                        <SingleCity city={'Marrakesh'} />
-                    </Col>
+                    {cities.map(city => (
+
+                        <Col key={city} xs={12} md={6} lg={4} xl={3} className="d-flex align-items-center">
+                            <SingleCity city={city} />
+                        </Col>
+                    ))}
                 </Row>
             </Container>
         </>

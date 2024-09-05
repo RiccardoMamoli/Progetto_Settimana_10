@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import { Container, Button, Row, Col, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux'
+import { addToFavAction, removeFromFavAction } from "../redux/actions";
+
 
 function SingleCity({ city }) {
 
     const [cityData, setCityData] = useState(null);
     const navigate = useNavigate();
+    const selector = useSelector((store) => store.list.fav)
+    const dispatch = useDispatch()
+    const isFav = cityData ? selector.find((singleFav) => singleFav.name === cityData.name) : false
 
 
 
@@ -51,7 +57,15 @@ function SingleCity({ city }) {
 
     if (!cityData) {
         return (
-            ''
+            <Container fluid className="p-0 d-flex justify-content-center py-3">
+                <div style={{ width: '18rem' }}>
+                    <div className="custom-card">
+                        <div className="d-flex align-items-center justify-content-center h-100">
+                            <Spinner animation="grow" />
+                        </div>
+                    </div>
+                </div>
+            </Container>
         );
     }
 
@@ -61,56 +75,73 @@ function SingleCity({ city }) {
         <>
             {cityData ?
 
-                (<Container fluid className="p-0 d-flex justify-content-center py-3">
-                    <div style={{ width: '18rem' }}>
-                        <div className="custom-card">
-                            <div className="text-center">
-                                <div className="nameCity">
-                                    {cityData.name}
-                                </div>
-                                <div className="d-flex justify-content-center align-items-center">
-                                    <div>
-                                        {celsius}
+                (
+
+
+                    <Container fluid className="p-0 d-flex justify-content-center py-3">
+                        <div style={{ width: '18rem' }}>
+                            <div className="custom-card">
+                                <div className="text-center">
+                                    <div className="nameCity d-flex justify-content-center">
+                                        {cityData.name}
+                                    </div>
+                                    <div className="d-flex justify-content-center align-items-center">
+                                        <div>
+                                            {celsius}
+                                        </div>
+                                        <div>
+                                            <img src={iconUrl} alt='Weather'></img>
+                                        </div>
                                     </div>
                                     <div>
-                                        <img src={iconUrl} alt='Weather'></img>
+                                        {description}
+                                    </div>
+                                    <div className="px-2">
+                                        <Row>
+                                            <Col>
+                                                <p> Wind</p>
+                                            </Col>
+                                            <Col>
+                                                <p> {windSpeed} m/s</p>
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col>
+                                                <p> Humidity</p>
+                                            </Col>
+                                            <Col>
+                                                <p> {humidity} %</p>
+                                            </Col>
+                                        </Row>
+                                    </div>
+                                    <div>
+                                        <Row>
+                                            <Col>
+                                                <p></p>
+                                            </Col>
+
+                                        </Row>
+
+                                    </div>
+                                    <div className="d-flex justify-content-center">
+                                        <div>
+                                            <Button className="custom-button my-3" onClick={ViewDetails}> View Details </Button>
+                                        </div>
+                                        <div className="addIcon">
+                                            <i className={isFav ? "bi bi-check-circle" : 'bi bi-plus-circle'} onClick={() => {
+
+                                                isFav ?
+                                                    dispatch(removeFromFavAction(cityData))
+                                                    :
+                                                    dispatch(addToFavAction(cityData))
+
+                                            }}></i>
+                                        </div>
                                     </div>
                                 </div>
-                                <div>
-                                    {description}
-                                </div>
-                                <div className="px-2">
-                                    <Row>
-                                        <Col>
-                                            <p> Wind</p>
-                                        </Col>
-                                        <Col>
-                                            <p> {windSpeed} m/s</p>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col>
-                                            <p> Humidity</p>
-                                        </Col>
-                                        <Col>
-                                            <p> {humidity} %</p>
-                                        </Col>
-                                    </Row>
-                                </div>
-                                <div>
-                                    <Row>
-                                        <Col>
-                                            <p></p>
-                                        </Col>
-
-                                    </Row>
-
-                                </div>
-                                <Button className="custom-button my-3" onClick={ViewDetails}> View Details </Button>
                             </div>
                         </div>
-                    </div>
-                </Container>) :
+                    </Container>) :
 
                 (
                     <Container fluid className="p-0 d-flex justify-content-center py-3">
@@ -129,6 +160,8 @@ function SingleCity({ city }) {
         </>
     )
 }
+
+
 
 export default SingleCity;
 

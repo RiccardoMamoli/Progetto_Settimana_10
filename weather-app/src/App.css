@@ -1,9 +1,9 @@
 body {
-
-  background-color: #212529 !important;
+  background: #3aa6ff !important;
   font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
 
 }
+
 
 p {
   margin-bottom: 0px !important;
@@ -13,19 +13,85 @@ p {
 .custom-card {
   background: linear-gradient(135deg, rgba(172, 164, 215, 0.307), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(30px);
   border-radius: 20px;
   height: 250px;
-  border: 1px solid rgba(69, 56, 56, 0.18);
+  border: 1px solid rgba(209, 209, 209, 0.408);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   transition: transform 0.4s ease;
 }
 
 .custom-card:hover {
-  transform: scale(1.1 , 1.1);
+  transform: scale(1.1, 1.1);
   cursor: pointer;
 }
 
+.custom-widget {
+  background: linear-gradient(135deg, rgba(172, 164, 215, 0.307), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 20px;
+  max-height: 500px;
+  overflow: scroll;
+  border: 1px solid rgba(209, 209, 209, 0.408);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.editIcon {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.edit-mode-container {
+  transition: width 1s ease-in-out !important;
+  width: calc(100% + 50px) !important;
+}
+
+
+.custom-row-widget {
+  border-radius: 8px;
+  margin-bottom: 10px;
+  height: 80px;
+  width: 450px;
+  background-color: #557d969c;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.headerWidget {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12px !important;
+}
+
+.widget-temp {
+  font-size: 35px;
+}
+
+.widget-icon {
+  position: absolute !important;
+  bottom: 0;
+  left: 4px;
+  width: 45px !important;
+}
+
+.widgetHLtemp {
+
+  font-size: 12px;
+
+}
+
+.widget-description {
+  position: absolute;
+  bottom: 7px;
+  left: 53px;
+  font-size: 17px;
+}
 
 .degrees {
   font-size: 70px;
@@ -60,3 +126,65 @@ p {
   transition: transform 0.4s ease !important;
   color: white;
 }
+
+
+.loader-container {
+  position: relative;
+  width: 30%;
+  height: 6px;
+  border-radius: 10px;
+  /* Altezza della barra di caricamento */
+  background-color: #11a8ff;
+  /* Colore di sfondo della barra */
+  overflow: hidden;
+}
+
+.loader-bar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: #e7e7e7;
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.addIcon {
+  position: absolute;
+  bottom: 23px;
+  right: 15px;
+  font-size: 20px;
+  color: white;
+  transition: transform 0.4s;
+}
+
+.addIcon:hover {
+  color: white;
+  cursor: pointer;
+  transform: scale(1.2, 1.2);
+}
+
+.custom-badge {
+  margin-left: 4px;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 25px;
+  left: 460px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+
+
